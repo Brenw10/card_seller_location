@@ -1,13 +1,12 @@
-const csv = require('csvtojson');
+const worker = require('./worker');
+const store = require('./store');
+const geolocation = require('./geolocation');
 
-function getWorkerByStore() {
-  csv()
-    .fromFile('./data/stores.csv')
-    .then(json => console.log(json));
-
-  csv()
-    .fromFile('./data/workers.csv')
-    .then(json => console.log(json));
+async function getWorkersByStores() {
+  const workers = await worker.get();
+  const stores = await store.get();
+  return stores.map(store => geolocation.getDistancePointToPlacesAsc(store, workers))
+    .map(list => list[0]);
 }
 
-module.exports = { getWorkerByStore };
+module.exports = { getWorkersByStores };
