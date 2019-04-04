@@ -3,7 +3,7 @@ const sale = require('../services/sale');
 const router = express.Router();
 
 router.get('/', (_, res) => 
-  sale.getWorkersByStores()
+  sale.getWorkersStore()
     .then(json => res.send(json))
 );
 
