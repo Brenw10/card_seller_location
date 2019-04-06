@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import { API } from '../core/endpoint';
+import WorkerStorePanel from '../components/WorkerStorePanel';
+import '../styles/WorkerStore.css';
 
-class WorkerStoreList extends Component {
+class WorkerStore extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,26 +23,20 @@ class WorkerStoreList extends Component {
       );
   }
   getSalesByWorker(worker) {
-    return this.state.sales
-      .filter(sale => sale.place === worker)
-      .map(sale => sale.point);
+    return this.state.sales.filter(sale => worker === sale.place);
   }
-  renderUser() {
-    if (!this.state.workers) return;
-    return this.state.workers.map(worker =>
-      <div>
-        <div>{worker.name}</div>
-        <div>{this.getSalesByWorker(worker.name)}</div>
-      </div>
+  renderPanelList() {
+    return this.state.workers.map((worker, key) =>
+      <WorkerStorePanel key={key} worker={worker} sales={this.getSalesByWorker(worker.name)} />
     );
   }
   render() {
     return (
-      <div>
-        {this.renderUser()}
+      <div className='painelList'>
+        {this.renderPanelList()}
       </div>
     );
   }
 }
 
-export default WorkerStoreList;
+export default WorkerStore;
