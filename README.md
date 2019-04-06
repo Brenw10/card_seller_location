@@ -34,7 +34,7 @@
   - It gets back-end json and create an Expansion Panel using Material-ui theme.
 
   > What paradigm is used?
-  - Functional paradigm was used for both apps (client and server).
+  - Functional paradigm was used for both apps (client and server). Functional helps code be more humam-readable and easy to understand.
 
 ## Additional Notes
  - I spent about 5 hours to create the scaffolding and create the current code.
