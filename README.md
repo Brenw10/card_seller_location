@@ -19,7 +19,7 @@
 
 ## Architecture revision
   > Why docker was not used?
-  - Stack is only Node.js
+  - Stack is just Node.js and I did not have much free time off work
 
   > What technologies were used?
   - React for front-end
@@ -27,7 +27,7 @@
 
   > How back-end works?
   - Basically using express it creates an endpoint.
-  - To show where each worker must go were created multiple arrays simulating distance between a store to multiple workers then sorting asc and getting first item which is shorter distance.
+  - To show where each worker must go has been created multiple arrays simulating distance between a store to multiple workers then sorting asc and getting first item which is shortest distance.
   - Endpoint print a json containing workers and places to go by worker.
 
   > How front-end works?
