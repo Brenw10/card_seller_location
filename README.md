@@ -18,9 +18,6 @@
  - Access localhost:3000 [clicking here](http://localhost:3000/).
 
 ## Architecture revision
-  > Why docker was not used?
-  - Stack is just Node.js and I did not have much free time off work
-
   > What technologies were used?
   - React for front-end
   - Node.js for back-end
