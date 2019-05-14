@@ -19,11 +19,14 @@ class WorkerStore extends Component {
     ];
     Promise.all(requests)
       .then(([workers, sales]) =>
-        this.setState({ workers: workers.data, sales: sales.data })
+        this.setState({
+          workers: workers.data,
+          sales: sales.data.map(sale => sale.sort((a, b) => a.distance - b.distance)[0]),
+        })
       );
   }
   getSalesByWorker(worker) {
-    return this.state.sales.filter(sale => worker === sale.place);
+    return this.state.sales.filter(sale => worker === sale.worker.name);
   }
   renderPanelList() {
     return this.state.workers.map((worker, key) =>

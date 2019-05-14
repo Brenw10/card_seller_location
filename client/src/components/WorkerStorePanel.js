@@ -15,7 +15,7 @@ class WorkerStorePanel extends Component {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography variant='overline'>
-            {this.props.sales.map(sale => sale.point).join(' - ')}
+            {this.props.sales.map(sale => sale.store.name).join(' - ')}
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
